@@ -20,3 +20,5 @@ export const get: any = async() => {
 // jHqc8nymGndUexQI6DDDrI1HtLIVzeYXG7qQprNr
 
 // jHqc8nymGndUexQI6DDDrI1HtLIVzeYXG7qQprNr
+
+// TO DO: Slider with buttons. 10 images.

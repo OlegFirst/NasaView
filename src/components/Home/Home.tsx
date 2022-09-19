@@ -1,15 +1,17 @@
 import { useEffect } from 'react';
 
+import Slider from '../_comonComponents/Slider/Slider';
+
 import { get } from '../../server/getDataFromServer';
 
 const Home = () => {
   useEffect(() => {
-    console.log(get());
+    // console.log(get());
   }, []);
 
   return (
-    <section>
-      ok
+    <section className='home'>
+      <Slider />
     </section>
   )
 };

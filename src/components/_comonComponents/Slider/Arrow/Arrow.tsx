@@ -1,17 +1,28 @@
+import type { FC } from 'react';
+
 interface ArrowInterface {
-  direction: string
+  direction: string,
+  onClick(): void
 };
 
-const Arrow = (props: ArrowInterface) => {
+const Arrow: FC<ArrowInterface> =  (props) => {
   const {
-    direction
+    direction,
+    onClick
   } = props;
 
-  console.log(direction)
-
   return (
-    <div className="arrow">
-      
+    <div
+      className="arrow-inner"
+      onClick={onClick}
+    >
+      { direction === 'left' &&
+        <span className="arrow-inner__image">&#60;</span>
+      }
+
+      { direction === 'right' &&
+        <span className="arrow-inner__image">&#62;</span>
+      }
     </div>
   )
 };

@@ -1,4 +1,7 @@
+@import './Arrow/arrow.scss';
+
 .slider {
+  position: relative;
   width: 100%;
   height: 400px;
 
@@ -18,6 +21,22 @@
     top: 0;
 
     & .item {
+      &__arrow-left,
+      &__arrow-right {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+      }
+
+      &__arrow-left {
+        left: 20px;
+      }
+
+      &__arrow-right {
+        right: 20px;
+      }
+
       &__image {
         object-fit: cover;
         width: 100%;

@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 
 interface ArrowInterface {
-  direction: string,
+  direction: 'left' | 'right',
   onClick(): void
 };
 

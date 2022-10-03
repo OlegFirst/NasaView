@@ -2,7 +2,7 @@ import type { FC } from 'react';
 
 interface ArrowInterface {
   direction: 'left' | 'right',
-  onClick(): void
+  onClick: () => void
 };
 
 const Arrow: FC<ArrowInterface> =  (props) => {

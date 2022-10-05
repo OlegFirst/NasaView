@@ -1,33 +1,27 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import Arrow from './Arrow/Arrow';
+import SliderList from './SlidetList/SliderList';
 
-import { SliderItem } from '../../../common/types';
+import {
+  SliderDirection
+} from '../../../common/types';
 import { CAROUSEL_IMAGES_LIST } from '../../../common/constants';
-import { sliderInfo } from '../utils';
-
-let slider: any = null;
+import { useResize } from '../../../common/utils/customHucks';
 
 const Slider = () => {
-  const sliderRef: any = useRef(null);
-
-  // Slider prepares
-  useEffect(() => {
-    if (!sliderRef) {
-      return;
-    }
-
-    slider = sliderInfo(sliderRef.current.clientWidth, CAROUSEL_IMAGES_LIST.length);
-
-    // console.log(sliderRef.current.clientWidth)
-  }, [sliderRef]);
+  const sliderRef = useRef<HTMLInputElement>(null);
+  const sliderSize = useResize(sliderRef);
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
   // Slides move
-  const onclickHandler = (direction: string) => {
-    if (direction === 'left') {
-      console.log(slider.moveLeft());
-    } else {
-      console.log(slider.moveRight());
+  const onclickHandler = (direction: SliderDirection) => {
+    if (direction === 'left' && currentImageIndex > 0) {
+      setCurrentImageIndex(currentImageIndex - 1);
+    }
+
+    if (direction === 'right' && currentImageIndex < CAROUSEL_IMAGES_LIST.length - 1 ) {
+      setCurrentImageIndex(currentImageIndex + 1);
     }
   };
 
@@ -36,30 +30,20 @@ const Slider = () => {
       className="slider"
       ref={sliderRef}
     >
-      <div className='item__arrow-left'>
+      <div className='slider__arrow-left'>
         <Arrow 
           direction={'left'}
           onClick={() => onclickHandler('left')}
         />
       </div>
 
-      <ul className='slider__items'>
-        { CAROUSEL_IMAGES_LIST.map((item: SliderItem, index: number) => (
-          <li
-            className='slider__item item'
-            key={index}
-          >
-            <img
-              className='item__image'
-              src={item.src}
-              alt="NASA picture"
-            />
-            <h4 className='item__caption'>{item.caption}</h4>
-          </li>
-        )) }
-      </ul> 
+      <SliderList
+        sliderWidth={sliderSize.width}
+        currentImageIndex={currentImageIndex}
+        itemList={CAROUSEL_IMAGES_LIST}
+      />
       
-      <div className='item__arrow-right'>
+      <div className='slider__arrow-right'>
         <Arrow 
           direction={'right'}
           onClick={() => onclickHandler('right')}

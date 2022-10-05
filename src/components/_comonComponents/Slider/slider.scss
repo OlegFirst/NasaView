@@ -1,47 +1,25 @@
 @import './Arrow/arrow.scss';
+@import './SlidetList/slider-list.scss';
 
 .slider {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 100%;
+  overflow: hidden;
 
-  &__items {
-    position: relative;
-    @include flex(row, flex-start, flex-start);
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  &__arrow-left,
+  &__arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
   }
 
-  &__item {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
+  &__arrow-left {
+    left: 20px;
+  }
 
-    & .item {
-      &__arrow-left,
-      &__arrow-right {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1;
-      }
-
-      &__arrow-left {
-        left: 20px;
-      }
-
-      &__arrow-right {
-        right: 20px;
-      }
-
-      &__image {
-        object-fit: cover;
-        width: 100%;
-        height: 100%
-      }
-    }
+  &__arrow-right {
+    right: 20px;
   }
 }

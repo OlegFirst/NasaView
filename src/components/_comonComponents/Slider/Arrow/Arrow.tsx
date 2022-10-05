@@ -1,11 +1,13 @@
 import type { FC } from 'react';
 
+import { SliderDirection } from '../../../../common/types';
+
 interface ArrowInterface {
-  direction: 'left' | 'right',
+  direction: SliderDirection,
   onClick: () => void
 };
 
-const Arrow: FC<ArrowInterface> =  (props) => {
+const Arrow: FC<ArrowInterface> =  props => {
   const {
     direction,
     onClick

@@ -1,7 +1,10 @@
 .arrow-inner {
-  background-color: rgba(0, 0, 0, 0.1);
   padding: 10px;
   cursor: pointer;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
 
   &__image {
     color: #ffffff;

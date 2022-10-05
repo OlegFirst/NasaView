@@ -5,6 +5,8 @@ export interface SliderItem {
   caption: Caption
 };
 
+export type SliderDirection = 'left' | 'right';
+
 enum SliderItemEvent {
   hover,
   active

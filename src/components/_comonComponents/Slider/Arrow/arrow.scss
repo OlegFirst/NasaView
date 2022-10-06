@@ -1,0 +1,13 @@
+.arrow-inner {
+  padding: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  &__image {
+    color: #ffffff;
+    font-size: 50px ;
+  }
+}

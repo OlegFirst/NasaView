@@ -7,6 +7,7 @@
   overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
+  z-index: 1;
 
   &__item {
     position: relative;
@@ -24,13 +25,27 @@
       &__previous,
       &__next {
         display: block;
-        background-color: green;       
         position: absolute;
+        // background-color: lightgreen;
         top: calc(50% + 8px);
         width: 48px;
         height: 70px;
         // pointer-events: none;
       }
+
+      // &__previous::after,
+      // &__next::after {
+      //   position: absolute;
+      //   content: '<';
+      //   color: #ffffff;
+      //   left: 0px;
+      //   top: -5px;
+      //   font-size: 84px;
+      // }
+
+      // &__next::after {
+      //   content: '>';
+      // }
     
       &__image {
         object-fit: cover;

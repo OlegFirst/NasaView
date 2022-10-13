@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+import Arrow from '../Arrow/Arrow';
+
 import {
   SliderItem
 } from '../../../../common/types';
@@ -16,13 +18,11 @@ interface SliderItemsInterface {
 
 const SliderList: FC<SliderItemsInterface> = (props) => {
   const {
-    // sliderWidth,
     currentImageIndex,
     itemList    
   } = props;
 
-  // const left = - sliderWidth * currentImageIndex;
-  // console.log(currentImageIndex)
+  const onclickHandler = (arg: string) => {};
 
   return (
     <ul className='slider-list'>
@@ -34,17 +34,13 @@ const SliderList: FC<SliderItemsInterface> = (props) => {
             className='slider-list__item item'
             id={`item_${index + 1}`}
             key={index}
-            style={{ 
-              // width: sliderWidth + 'px',
-              // left: left + 'px'   
-            }}
           >
             <a
               className='slider__arrow-left item__previous'
               href={`#item_${index}`}
             />
 
-            <img 
+            <img
               className='item__image'
               src={src}
               alt="NASA picture"

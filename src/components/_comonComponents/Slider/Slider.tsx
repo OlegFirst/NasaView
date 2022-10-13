@@ -30,25 +30,25 @@ const Slider = () => {
       className="slider"
       ref={sliderRef}
     >
-      {/* <div className='slider__arrow-left'>
+      <div className='slider__arrow-left'>
         <Arrow 
           direction={'left'}
           onClick={() => onclickHandler('left')}
         />
-      </div> */}
-
+      </div>      
+     
       <SliderList
         sliderWidth={sliderSize.width}
         currentImageIndex={currentImageIndex}
         itemList={CAROUSEL_IMAGES_LIST}
       />
       
-      {/* <div className='slider__arrow-right'>
+      <div className='slider__arrow-right'>
         <Arrow 
           direction={'right'}
           onClick={() => onclickHandler('right')}
         />
-      </div> */}
+      </div>
     </section>
   )
 };

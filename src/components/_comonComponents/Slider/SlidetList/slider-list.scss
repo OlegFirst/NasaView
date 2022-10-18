@@ -1,12 +1,8 @@
 .slider-list {
-  position: relative;
+  position: absolute;
   @include flex(row, flex-start, flex-start);
   width: 100%;
   height: 100%;
-  // overflow-x: scroll;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
   z-index: 1;
 
   &__item {
@@ -20,46 +16,22 @@
     scroll-snap-align: center;
     transform-origin: center center;
     transform: scale(1);
+    transition: left 0.4s;
 
     & .item {
-      &__previous,
-      &__next {
-        display: block;
-        position: absolute;
-        // background-color: lightgreen;
-        top: calc(50% + 8px);
-        width: 48px;
-        height: 70px;
-        // pointer-events: none;
-      }
-
-      // &__previous::after,
-      // &__next::after {
-      //   position: absolute;
-      //   content: '<';
-      //   color: #ffffff;
-      //   left: 0px;
-      //   top: -5px;
-      //   font-size: 84px;
-      // }
-
-      // &__next::after {
-      //   content: '>';
-      // }
-    
       &__image {
         object-fit: cover;
         width: 100%;
         height: 100%;
       }
 
-      // &__caption {
-      //   position: absolute;
-      //   color: $color-white;
-      //   left: 50%;
-      //   transform: translateX(-50%);
-      //   bottom: 50px;
-      // }
+      &__caption {
+        position: absolute;
+        color: $color-white;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 50px;
+      }
     }
   }
 }

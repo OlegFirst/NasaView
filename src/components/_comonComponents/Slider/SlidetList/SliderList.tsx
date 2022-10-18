@@ -1,7 +1,5 @@
 import { FC } from 'react';
 
-import Arrow from '../Arrow/Arrow';
-
 import {
   SliderItem
 } from '../../../../common/types';
@@ -9,12 +7,9 @@ import {
 interface ItemListInterface extends Array<SliderItem>{};
 
 interface SliderItemsInterface {
-  sliderWidth: number,
   currentImageIndex: number,
   itemList: ItemListInterface
 };
-
-// TO DO: Implement 'dots' on slider item
 
 const SliderList: FC<SliderItemsInterface> = (props) => {
   const {
@@ -22,7 +17,8 @@ const SliderList: FC<SliderItemsInterface> = (props) => {
     itemList    
   } = props;
 
-  const onclickHandler = (arg: string) => {};
+  const left = - 100 * currentImageIndex;
+  const style = { left: left + '%' };
 
   return (
     <ul className='slider-list'>
@@ -32,27 +28,16 @@ const SliderList: FC<SliderItemsInterface> = (props) => {
         return (
           <li
             className='slider-list__item item'
-            id={`item_${index + 1}`}
             key={index}
+            style={style}
           >
-            <a
-              className='slider__arrow-left item__previous'
-              href={`#item_${index}`}
-            />
-
             <img
               className='item__image'
               src={src}
               alt="NASA picture"
             />
 
-            {/* <h4 className='item__caption'>{caption}</h4> */}
-
-            <a
-              className='slider__arrow-right item__next'
-              href={`#item_${index + 2}`}
-              onClick={() => console.log(1)}
-            />
+            <h4 className='item__caption'>{caption}</h4>
           </li>
         )
       }) }

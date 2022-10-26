@@ -7,19 +7,18 @@ import {
 interface ItemListInterface extends Array<SliderItem>{};
 
 interface SliderItemsInterface {
-  sliderWidth: number,
   currentImageIndex: number,
   itemList: ItemListInterface
-}
+};
 
 const SliderList: FC<SliderItemsInterface> = (props) => {
   const {
-    sliderWidth,
     currentImageIndex,
     itemList    
   } = props;
 
-  const left:number = - sliderWidth * currentImageIndex;
+  const left = - 100 * currentImageIndex;
+  const style = { left: left + '%' };
 
   return (
     <ul className='slider-list'>
@@ -28,20 +27,17 @@ const SliderList: FC<SliderItemsInterface> = (props) => {
 
         return (
           <li
-            className='slider-list__item'
+            className='slider-list__item item'
             key={index}
-            style={{ 
-              width: sliderWidth + 'px',
-              left: left + 'px'            
-            }}
+            style={style}
           >
-            <img 
-              className='slider-list__image'
+            <img
+              className='item__image'
               src={src}
               alt="NASA picture"
             />
 
-            <h4 className='slider-list__caption'>{caption}</h4>
+            <h4 className='item__caption'>{caption}</h4>
           </li>
         )
       }) }

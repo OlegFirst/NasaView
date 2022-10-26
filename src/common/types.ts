@@ -11,3 +11,9 @@ enum SliderItemEvent {
   hover,
   active
 };
+
+export interface TextSplitShowInterface {
+  text: string,
+  startDelay: number,
+  letterDelay: number
+};

@@ -1,3 +1,36 @@
 .home {
+  position: relative;
   height: 100vh;
+
+  &__title {
+    color: #ffffff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    z-index: 10;
+  }
+
+  &__description-wrapper {
+    color: #ffffff;
+    position: absolute;
+    left: 50%;
+    top: 58%;
+    transform: translate(-50%, -52%);
+    font-size: 20px;
+    z-index: 10;
+  }
+
+  @keyframes fade-in {
+    from {
+      font-size: 0;
+    }
+
+    to {
+      font-size: 100px;
+    }
+  }
 }

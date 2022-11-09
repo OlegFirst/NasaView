@@ -1,0 +1,24 @@
+.text-split-show {
+  &__item {
+    display: inline-block;
+    font-size: 0;
+    animation-name: letter-show;    
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes letter-show {
+    0% {
+      color: grey;
+      font-size: 0;
+    }
+
+    50% {
+      color: grey;
+    }
+
+    100% {
+      color: white;
+      font-size: 100%;
+    }
+  }
+}

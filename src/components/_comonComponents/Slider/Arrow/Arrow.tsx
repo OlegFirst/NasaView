@@ -2,12 +2,12 @@ import type { FC } from 'react';
 
 import { SliderDirection } from '../../../../common/types';
 
-interface ArrowInterface {
+type ArrowProps = {
   direction: SliderDirection,
   onClick: () => void
 };
 
-const Arrow: FC<ArrowInterface> =  props => {
+const Arrow: FC<ArrowProps> = props => {
   const {
     direction,
     onClick
@@ -18,11 +18,11 @@ const Arrow: FC<ArrowInterface> =  props => {
       className="arrow-inner"
       onClick={onClick}
     >
-      { direction === 'left' &&
+      {direction === 'left' &&
         <span className="arrow-inner__image">&#60;</span>
       }
 
-      { direction === 'right' &&
+      {direction === 'right' &&
         <span className="arrow-inner__image">&#62;</span>
       }
     </div>

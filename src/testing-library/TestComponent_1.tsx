@@ -4,13 +4,13 @@ export const label = () => (
   "some message"
 );
 
-interface labelWithPropsInterface {
+interface LabelWithPropsInterface {
   msg: string
 };
 
-export const LabelWithProps: FC<labelWithPropsInterface> = ({ msg }) => (
-  <p>`some message: ${msg}`</p>
-);
+export const LabelWithProps: FC<LabelWithPropsInterface> = ({ msg }) => ( <p>`some message: ${msg}`</p> );
+
+export const LabelWithText = ( msg: string ) => ( `Text. ${msg}` );
 
 const TestComponent_1 = () => {
   return (
@@ -20,6 +20,8 @@ const TestComponent_1 = () => {
       <div>{label()}</div>
 
       <LabelWithProps msg={'from me'} />
+
+      <div>{LabelWithText('Hi, my friend!')}</div>
     </>
   )
 };
